@@ -1,0 +1,6 @@
+p = mat + 1; //p recebe o endereço de memória da primeira posição do vetor e avança 4 bytes (valor referente a um inteiro), 
+indo para a segundo posição do vetor;
+
+x = (*mat)++; //x recebe o valor da posição v[0] e o incrementa;
+
+ As outras expressões são inválidas, pois elas tentam alterar o valor do endereço do vetor; 
