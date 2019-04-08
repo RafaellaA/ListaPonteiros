@@ -1,0 +1,2 @@
+A utilização de ponteiros nos permite trabalhar com o endereço de memória de uma variável ao invés de acessar ao valor diretamente,
+tendo assim um desempenho melhor do programa.
