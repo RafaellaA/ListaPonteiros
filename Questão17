@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void compara(int *v1, int *v2);
+void minhaOrdenacao (int *v, int n, void (*comp)(int*, int*));
+void troca (int *v1, int *v2);
+
+
+int main()
+{
+    clock_t inicio, final;
+    double diferenca;
+    srand(time(NULL));
+    int *v;
+    int n,i;
+
+    void (*comp)(int*,int*) = compara;
+
+    printf("Digite o quantidade elementos: \n");
+    scanf("%d",&n);
+
+    v = (int*)malloc(n*sizeof(int));
+
+    printf("Digite o conteudo do vetor: \n");
+    for (i=0; i<n; i++){
+        v[i] = rand() % 10;
+    }
+    printf("\n");
+
+    inicio = clock();
+    minhaOrdenacao (v, n,comp);
+    final = clock();
+
+    diferenca = (double)(final - inicio)/CLOCKS_PER_SEC;
+
+    for (i=0; i<n; i++){
+        printf("%d ",v[i]);
+    }
+    printf("\n");
+
+    printf("Tempo total: %f\n",diferenca); 
+
+    free(v);
+    return 0;
+}
+
+O tempo de execução para ordenar 10000 valores foi de 1.704 milisegundos, enquanto a função qsort ordenou em 0.002 milisegundos.
