@@ -1,0 +1,24 @@
+As funções podem ser acessadas por meio de um ponteiro que aponte para local onde ela está armazenada na memória.
+ 
+
+Exemplo:
+
+#include <stdio.h>
+int soma (int a, int b);
+int main()
+{
+    int x = 6, y = 4, z;
+    int (*pf)(int, int);
+
+    pf = soma;
+    z = pf(x,y);
+
+    printf("A soma eh %d\n",z);
+
+    return 0;
+}
+
+int soma (int a, int b){
+
+    return (a + b);
+}
