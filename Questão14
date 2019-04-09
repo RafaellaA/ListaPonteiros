@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+void ordena(float *v, int n);
+void troca (float *v1, float *v2);
+
+int main()
+{
+    srand(time(NULL));
+    float *v;
+    int n,i;
+
+    printf("Digite o tamanho de vetor: ");
+    scanf("%d",&n);
+
+    v = (float*) malloc(n*sizeof(float));
+
+    for (i=0; i<n; i++){
+        v[i] = rand() % 11;
+    }
+
+    for (i=0; i<n; i++){
+        printf("Vetor: %f\n", v[i]);
+    }
+
+    ordena (v,n);
+
+    for(i=0; i<n; i++){
+        printf(" %f",v[i]);
+    }
+    printf("\n");
+
+
+
+    return 0;
+}
+
+void ordena (float *v, int n){
+
+    int i,j;
+
+    for(j=0; j<n; j++){
+        for (i=0; i<n; i++){
+            if (v[i]>v[i+1]){
+                troca(&v[i],&v[i+1]);
+            }
+        }
+    }
+}
+
+void troca (float *v1, float *v2){
+
+    float aux;
+
+    aux = *v1;
+    *v1 = *v2;
+    *v2 = aux;
+}
